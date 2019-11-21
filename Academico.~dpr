@@ -1,0 +1,61 @@
+program Academico;
+
+uses
+  Forms,
+  UnitLogon in 'UnitLogon.pas' {FormLogon},
+  UnitMenu in 'UnitMenu.pas' {FormMenu},
+  UnitSplash in 'UnitSplash.pas' {FormSplash},
+  UnitUsuarios in 'UnitUsuarios.pas' {FormUsuarios},
+  UnitPesquisa in 'UnitPesquisa.pas' {FormPesquisa},
+  UnitPermissoes in 'UnitPermissoes.pas' {FormPermissoes},
+  UnitCursos in 'UnitCursos.pas' {FormCursos},
+  UnitInstrutores in 'UnitInstrutores.pas' {FormInstrutores},
+  UnitTurmas in 'UnitTurmas.pas' {FormTurmas},
+  UnitPesquisaTurmas in 'UnitPesquisaTurmas.pas' {FormPesquisaTurmas},
+  UnitAlunos in 'UnitAlunos.pas' {FormAlunos},
+  UnitMatriculas in 'UnitMatriculas.pas' {FormMatriculas},
+  UnitLancaAulas in 'UnitLancaAulas.pas' {FormLancaAulas},
+  UnitLancaPresenca in 'UnitLancaPresenca.pas' {FormLancaPresenca},
+  UnitPagInstru in 'UnitPagInstru.pas' {FormPagIntru},
+  UnitRelatorios in 'UnitRelatorios.pas' {FormRelatorios},
+  UnitRelTurmas in 'UnitRelTurmas.pas' {FormRelTurmas},
+  UnitRelAlunos in 'UnitRelAlunos.pas' {FormRelAlunos},
+  UnitRelFaltas in 'UnitRelFaltas.pas' {FormRelFaltas};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+
+  FormSplash := TFormSplash.Create(application);
+  FormSplash.Show;
+  FormSplash.Update;
+
+  Application.CreateForm(TFormLogon, FormLogon);
+  Application.CreateForm(TFormMenu, FormMenu);
+  Application.CreateForm(TFormUsuarios, FormUsuarios);
+  Application.CreateForm(TFormPesquisa, FormPesquisa);
+  Application.CreateForm(TFormPermissoes, FormPermissoes);
+  Application.CreateForm(TFormCursos, FormCursos);
+  Application.CreateForm(TFormInstrutores, FormInstrutores);
+  Application.CreateForm(TFormTurmas, FormTurmas);
+  Application.CreateForm(TFormPesquisaTurmas, FormPesquisaTurmas);
+  Application.CreateForm(TFormAlunos, FormAlunos);
+  Application.CreateForm(TFormMatriculas, FormMatriculas);
+  Application.CreateForm(TFormLancaAulas, FormLancaAulas);
+  Application.CreateForm(TFormLancaPresenca, FormLancaPresenca);
+  Application.CreateForm(TFormPagIntru, FormPagIntru);
+  Application.CreateForm(TFormRelatorios, FormRelatorios);
+  Application.CreateForm(TFormRelTurmas, FormRelTurmas);
+  Application.CreateForm(TFormRelAlunos, FormRelAlunos);
+  Application.CreateForm(TFormRelFaltas, FormRelFaltas);
+  //Application.CreateForm(TFormSplash, FormSplash);
+
+  if FormLogon.autenticacao = False then
+    Application.Terminate;
+
+  FormSplash.Hide;
+  FormSplash.Destroy;
+
+  Application.Run;
+end.
